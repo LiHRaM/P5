@@ -1,0 +1,10 @@
+# nxt build files
+build
+kernel*
+*.map
+*.elf
+*.sh
+*.bin
+*.rxe
+nxt
+implementation.oil

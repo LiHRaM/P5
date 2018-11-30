@@ -1,0 +1,26 @@
+{
+    "C_Cpp.default.includePath": [
+        "${NXTOSEK}/**"
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+
+        /* Cross-compiling extensions */
+        "src/*.bin": true,
+        "src/*.map": true,
+        "src/*.elf": true,
+        "src/*.sh": true,
+
+        /* Cross-compiling files */
+        "src/implementation.oil": true,
+        "src/kernel*.*": true,
+        "src/nxt": true,
+        
+        /* Build folder */
+        "src/build": true,
+    },
+}
