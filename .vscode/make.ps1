@@ -23,7 +23,7 @@ if (Test-Path ./NXT.rxe) {
 
     $name = & $tool /COM=usb -getname;
     if ($name -eq "YAYER") {
-        ./rxeflash.sh;
+        Start-Process -Wait ./rxeflash.sh;
         echo "Flashing complete.";
     } else {
         echo "Flashing failed.";
