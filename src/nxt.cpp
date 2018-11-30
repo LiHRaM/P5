@@ -9,6 +9,7 @@
 #include "SoundSensor.h"
 #include "Clock.h"
 #include "Lcd.h"
+
 using namespace ecrobot;
 
 extern "C" {
@@ -16,9 +17,9 @@ extern "C" {
 	#include "kernel_id.h"
 	#include "ecrobot_interface.h"
 
+	// Firmware objects
+	Lcd lcd;
 	SoundSensor mic(PORT_2);
-
-	unsigned int buffer[SAMPLES];
 
 	/* nxtOSEK hook to be invoked from an ISR in category 2 */
 	void user_1ms_isr_type2(void) {
@@ -26,19 +27,17 @@ extern "C" {
 	}
 
 	TASK(TaskMain) {
-		Clock clock;
-		Lcd lcd;
-
-		begin:
-		for(int i = 0; i < SAMPLES; i++) {
-			buffer[i] = mic.getLevel();
-			lcd.clear();
-			lcd.putf("sn", "NXT Sensors");
-			lcd.putf("sdn", "Noise: ", buffer[i]);
-			lcd.putf("sdn", "Sample: ", i);
-			lcd.putf("sdn", "size: ", sizeof(clock));
-			lcd.disp();
-		}
-//		goto begin;
+		/**
+		 * Print initial message
+		 * Start main loop
+		 *  while counter is not zero:
+		 *    rock back and forth
+		 *    wait 1 second
+		 * 	Start sound buffer loop
+		 * 	  Fill sound buffer
+		 * 	Detect cry
+		 *    if sound is cry:
+		 *       set counter to 60
+		 */ 
 	}
 }

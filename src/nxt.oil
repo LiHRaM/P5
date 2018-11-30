@@ -35,11 +35,11 @@ CPU ATMEL_AT91SAM7S256
   
   EVENT EventSleepI2C
   {
-	MASK = AUTO;
+	  MASK = AUTO;
   };
-  EVENT EventSleep
+    EVENT EventSleep
   {
-	MASK = AUTO;
+	  MASK = AUTO;
   };
 };
 
