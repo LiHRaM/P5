@@ -16,30 +16,19 @@ CPU ATMEL_AT91SAM7S256
   };
 
   /* Definition of application mode */
-  APPMODE appmode1{}; 
+  APPMODE appmode{}; 
 
-  /* Definition of TaskMain */
-  TASK TaskMain
+  /* Definition of MainTask */
+  TASK MainTask
   {
     AUTOSTART = TRUE
     {
-      APPMODE = appmode1;
+      APPMODE = appmode;
     };
     PRIORITY = 1; /* lowest priority */
     ACTIVATION = 1;
     SCHEDULE = FULL;
     STACKSIZE = 512;
-    EVENT = EventSleepI2C;
-    EVENT = EventSleep;
-  };
-  
-  EVENT EventSleepI2C
-  {
-	  MASK = AUTO;
-  };
-    EVENT EventSleep
-  {
-	  MASK = AUTO;
   };
 };
 

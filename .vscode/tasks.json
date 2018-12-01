@@ -18,14 +18,32 @@
             "label": "Make & Flash",
             "type": "shell",
             "command": "${workspaceFolder}/.vscode/make.ps1",
-            "options": {
-                "cwd": "${workspaceFolder}/src"
-            },
             "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "docker run --rm -v ${pwd}:/home/nxtosek/nxtOSEK/build/nxt nxtosek clean",
+            "problemMatcher": []
+        },
+        {
+            "label": "Launch interactive",
+            "type": "shell",
+            "command": "docker run --rm -it -v ${pwd}:/home/nxtosek/nxtOSEK/build/nxt --entrypoint bash nxtosek",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Build docker container",
+            "type": "shell",
+            "command": "docker build -t lihram/nxt-cross-compiler .",
+            "options": {
+                "cwd": "${workspaceFolder}/docker/"
+            },
+            "problemMatcher": []
         }
     ]
 }
