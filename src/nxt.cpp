@@ -3,37 +3,53 @@
  * The robot detects the cries of children and rocks a cradle accordingly.
  */
 
-#define SAMPLES 256
-#define ROCK_DURATION 60
-
 // ECRobot++ API
-#include "SoundSensor.h"
-#include "Motor.h"
 #include "Port.h"
 #include "Clock.h"
 #include "Lcd.h"
 
 using namespace ecrobot;
 
+static const U8 SAMPLES = 256;
+static const U8 ROCK_DURATION = 60;
+static const U8 CRY_THESHOLD = 80;
+
+static U16 BUFFER [SAMPLES] = {};
+
 extern "C" {
-	#include "kernel.h"
-	#include "kernel_id.h"
 	#include "ecrobot_interface.h"
 
-	// Firmware objects
-	Clock clock;
 	Lcd lcd;
-	// Motor M2(PORT_B);
-	// Motor M3(PORT_C);
-	SoundSensor mic(PORT_2);
+	Clock clock;
 
 	/* nxtOSEK hook to be invoked from an ISR in category 2 */
 	void user_1ms_isr_type2(void) {
 		SleeperMonitor(); // needed for I2C device and Clock classes
 	}
 
+	/**
+	 * The data is read into the buffer here.
+	 */
+	void read() {
+		for(U8 i = 0; i < SAMPLES; i++) {
+			BUFFER[i] = 1023 - ecrobot_get_sound_sensor(PORT_1);
+		}
+	}
+
+	/**
+	 * The data is pre-processed here.
+	 */
+	void preprocess() {
+		// BUFFER[0] = 15;
+	}
+
+	/**
+	 * The sound is analyzed here.
+	 */
 	bool is_cry(void) {
-		// TODO: Analyze the buffer (consider it immutable)
+		// TODO: First, implement a bluetooth call to the computer, which performs the analysis
+		// TODO: Second, use FastGRNN model to analyze the sample.
+
 		return true;
 	}
 
@@ -42,7 +58,6 @@ extern "C" {
 		// TODO: Print initial message
 		
 		while (true) {
-			lcd.clear();
 			while(counter > 0) {
 				// TODO: Rock back and forth
 				ecrobot_set_motor_speed(PORT_A, 64);
@@ -56,22 +71,20 @@ extern "C" {
 				counter--;
 			}
 
-			for(int i = 0; i < SAMPLES; i++) {
-				// Fill buffer
-			}
+			read();
 
 			/**
 			 * TODO: Pre-process data
 			 * NOTE: Operations are performed in-place, to preserve memory.
 			 */
 
-
+			preprocess();
+			
 			// Perform analysis
 			if (is_cry()) {
 				lcd.clear();
 				lcd.putf("sn", "Cry detected...");
 				lcd.disp();
-				clock.wait(1000);
 				counter = ROCK_DURATION;
 			}
 		}
