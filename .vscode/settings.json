@@ -1,9 +1,6 @@
 {
     "C_Cpp.default.includePath": [
-        "${NXTOSEK}/c++",
-        "${NXTOSEK}/toppers_jsp/**",
-        "${NXTOSEK}/ecrobot/**",
-        "${NXTOSEK}/lejos_nxj/src/nxtvm/platform/nxt/**",
+        "${NXTOSEK}/ecrobot/c",
     ],
     "files.exclude": {
         "**/.git": true,

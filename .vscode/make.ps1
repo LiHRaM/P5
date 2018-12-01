@@ -20,6 +20,8 @@ if ($out -match "Error") {
 # If build was a success, flash firmware.
 if (Test-Path ./NXT.rxe) {
     echo "NXT.rxe successfully generated.";
+    $size = (Get-Item ./NXT.rxe).length
+    echo "NXT.rxe size: $size"
 
     $name = & $tool /COM=usb -getname;
     if ($name -eq "YAYER") {
