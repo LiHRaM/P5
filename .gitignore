@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+# nxt build files
+**/build
+**/kernel*
+**/*.map
+**/*.elf
+**/*.sh
+**/*.bin
+**/*.rxe
+**/implementation.oil

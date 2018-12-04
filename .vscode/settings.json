@@ -1,3 +1,9 @@
 {
-    "files.eol": "\n"
+    "files.eol": "\n",
+    // Add important docker scripts to PATH
+    // Enables commands such as `make all` to simply call docker
+    "terminal.integrated.env.windows": {
+        "ROOT": "${workspaceFolder}",
+        "PATH": "${workspaceFolder}/commands;${env:Path};",
+    }
 }
