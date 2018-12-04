@@ -34,7 +34,6 @@ void ecrobot_device_terminate(void)
     ecrobot_set_motor_speed(NXT_PORT_C, 0);
     ecrobot_term_bt_connection();
 }
-
 /**
  * The data is read into the buffer here.
  */
