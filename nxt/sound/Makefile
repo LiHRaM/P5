@@ -1,8 +1,8 @@
 # Target specific macros
-TARGET = BLUETOOTH
+TARGET = SOUND
 TARGET_SOURCES = \
-	bluetooth.c
-TOPPERS_OSEK_OIL_SOURCE = ./bluetooth.oil
+	sound.c
+TOPPERS_OSEK_OIL_SOURCE = ./sound.oil
 
 # Define custom libraries. Requires USER_INC_PATH.
 # USER_LIB = FOO

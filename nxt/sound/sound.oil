@@ -1,0 +1,73 @@
+#include "implementation.oil"
+
+CPU ATMEL_AT91SAM7S256
+{
+  OS LEJOS_OSEK
+  {
+    STATUS = EXTENDED;
+    STARTUPHOOK = FALSE;
+    ERRORHOOK = FALSE;
+    SHUTDOWNHOOK = FALSE;
+    PRETASKHOOK = FALSE;
+    POSTTASKHOOK = FALSE;
+    USEGETSERVICEID = FALSE;
+    USEPARAMETERACCESS = FALSE;
+    USERESSCHEDULER = FALSE;
+  };
+
+  /* Definition of application mode */
+  APPMODE appmode1{};
+
+  EVENT BufferFullEvent
+  {
+    MASK = AUTO;
+  };
+
+  /* Definition of FillBuffer */
+  TASK FillBuffer
+  {
+    AUTOSTART = FALSE;
+    PRIORITY = 1; /* Smaller value means lower priority */
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    STACKSIZE = 512; /* Stack size */
+  };
+
+  /* Definition of EmptyBuffer */
+  TASK EmptyBuffer
+  {
+    AUTOSTART = TRUE
+    {
+      APPMODE = appmode1;
+    };
+    PRIORITY = 2;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    STACKSIZE = 512; /* Stack size */
+    EVENT = BufferFullEvent;
+  };
+
+  /* Definition of OSEK Alarm Counter */
+  COUNTER SysTimerCnt
+  {
+    MINCYCLE = 1;
+    MAXALLOWEDVALUE = 10000;
+    TICKSPERBASE = 1; /* One tick is equal to 1msec */
+  };
+
+  /* Definition of FillBuffer execution timing */
+  ALARM cyclic_alarm
+  {
+    COUNTER = SysTimerCnt;
+    ACTION = ACTIVATETASK
+    {
+      TASK = FillBuffer;
+    };
+    AUTOSTART = TRUE
+    {
+      ALARMTIME = 1;
+      CYCLETIME = 1; /* One cycletime is equal to 1 ms */
+      APPMODE = appmode1;
+    };
+  };
+};
