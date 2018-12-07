@@ -1,5 +1,6 @@
 import sys
 import struct
+import time
 from nxt.bluesock import BlueSock
 
 bs = BlueSock("00:16:53:12:C0:CA:00")
@@ -11,8 +12,8 @@ received = 0
 buffer = []
 
 while received < 256:
-    print("Received: ", received)
     t = bs.sock.recv(size_bytes)
+    print("Received: ", received)
     size = sys.getsizeof(t)
     received += size
     buffer.extend(t)
