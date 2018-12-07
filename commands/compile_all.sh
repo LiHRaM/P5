@@ -1,6 +1,7 @@
 #/bin/bash
 
-cd ./P5/nxt;
+ls;
+cd nxt;
 for D in */; do cd $D; make all; cd ..; done
 
 echo "Success!";
