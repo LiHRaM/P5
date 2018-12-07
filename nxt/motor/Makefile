@@ -1,8 +1,8 @@
 # Target specific macros
 TARGET = MOTOR
 TARGET_SOURCES = \
-	motor.c
-TOPPERS_OSEK_OIL_SOURCE = ./motor.oil
+	nxt.c
+TOPPERS_OSEK_OIL_SOURCE = ./nxt.oil
 
 # Define custom libraries. Requires USER_INC_PATH.
 # USER_LIB = FOO
