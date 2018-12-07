@@ -25,15 +25,9 @@
             }
         },
         {
-            "label": "Clean",
-            "type": "shell",
-            "command": "docker run --rm -v ${pwd}:/home/nxtosek/nxtOSEK/build/nxt nxtosek clean",
-            "problemMatcher": []
-        },
-        {
             "label": "Launch interactive",
             "type": "shell",
-            "command": "docker run --rm -it -v ${pwd}:/home/nxtosek/nxtOSEK/build/nxt --entrypoint bash nxtosek",
+            "command": "docker run --rm -it -v ${pwd}:/home/nxt/code lihram/nxt-cross-compiler",
             "problemMatcher": [],
         },
         {

@@ -1,3 +1,6 @@
 #/bin/bash
 
-for D in ./nxt/*/; do cd $D; make all; done
+cd ./nxt;
+for D in */; do cd $D; make all; cd ..; done
+
+echo "Success!";
