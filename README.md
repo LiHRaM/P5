@@ -1,2 +1,2 @@
-# nxt-cry-detection
-Completely on-device Lego NXT Mindstorms cry detection
+# P5 - Lego NXT Cry Detection
+Semester 5 of Software Engineering at AAU.
