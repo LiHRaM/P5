@@ -2,3 +2,5 @@ container:
   image: lihram/nxt-cross-compiler:latest
 compile_task:
   script: ./commands/compile_all.sh
+test_task:
+  script: ./commands/test.sh

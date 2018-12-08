@@ -1,0 +1,1 @@
+docker run --rm -it -v ${env:ROOT}/nxt/:/home/nxt/code/ lihram/nxt-cross-compiler
