@@ -30,7 +30,7 @@ void user_1ms_isr_type2(void) {}
 TASK(MainTask)
 {
     static U8 i;
-    static U16 rx_buf[BUF_SIZE]; // for a total of 256 bytes, which is the max allowed by ecrobot_send_bt
+    U8 rx_buf[BUF_SIZE]; // for a total of 256 bytes, which is the max allowed by ecrobot_send_bt
 
     for (i = 0; i < BUF_SIZE; i++)
     {
@@ -43,9 +43,9 @@ TASK(MainTask)
 
     /* Continue sending the same packet until everything has been received. */
     U8 sent = 0;
-    while (sent < 256)
+    while (sent < BUF_SIZE)
     {
-        sent += ecrobot_send_bt(rx_buf + sent, 0, (BUF_SIZE * 2) - sent);
+        sent += ecrobot_send_bt(rx_buf + sent, 0, BUF_SIZE - sent);
 
         /* Hopefully we won't lose more than a few ms sending the packet. */
         systick_wait_ms(1);
