@@ -8,7 +8,7 @@ TOPPERS_OSEK_OIL_SOURCE = ./nxt.oil
 # USER_LIB = FOO
 
 # Custom include paths, space separated
-# USER_INC_PATH = ./foo ../bar
+USER_INC_PATH = ../inc
 
 # Only build programs using the enhanced NXT standard firmware
 BUILD_MODE = RXE_ONLY
