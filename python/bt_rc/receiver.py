@@ -13,9 +13,9 @@ buffer = []
 
 while received < 256:
     t = bs.sock.recv(size_bytes)
-    print("Received: ", received)
     size = sys.getsizeof(t)
     received += size
+    print("Received: ", received)
     buffer.extend(t)
 buffer = "".join(buffer)
 sound_points = []
