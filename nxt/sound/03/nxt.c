@@ -13,7 +13,7 @@
 /* nxtOSEK hooks */
 void ecrobot_device_initialize()
 {
-    ecrobot_init_bt_slave("LEiOS-OSEK");
+    ecrobot_init_bt_slave("LEJOS-OSEK");
 }
 
 void ecrobot_device_terminate()
