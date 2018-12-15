@@ -38,15 +38,13 @@ TASK(MainTask)
     U32 rename = systick_get_ms();
     /* 16.384 samples in all */
     for(int i = 0; i < 128; i++) {
-        for (unsigned char i = 0; i < 128; i++)
-        {
-            payload[i] = ecrobot_get_sound_sensor(NXT_PORT_S1);
-            systick_wait_ns(18000);
-        }
+        fill_buffer(payload, 128);
     }
     rename = systick_get_ms() - rename;
 
-    assert(payload[0] != 0, "buf[0] != 0");
+    /* Assert that the first and last slots have non-zero values. */
+    assert(payload[0] != 0, "buf[0] == 0");
+    assert(payload[127] != 0, "buf[127] == 0");
 
     sanity_check("Task complete...");
 

@@ -24,7 +24,6 @@ void fill_buffer(U16 *payload, U16 len) {
         payload[i] = ecrobot_get_sound_sensor(NXT_PORT_S1);
         systick_wait_ns(18000);
     }
-    
 }
 
 /* Send the buffer via Bluetooth */
