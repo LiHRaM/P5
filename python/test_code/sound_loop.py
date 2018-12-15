@@ -14,7 +14,7 @@ with open("sound.csv", "w") as f:
         payload = [] # Received data
         received = 0  # Amount of data received in bytes
         while received < size_bytes:
-            t = bs.sock.recv(256 - received)
+            t = bs.sock.recv(128 - received)
             size = sys.getsizeof(t)
             received += size
             print("Received: ", received)

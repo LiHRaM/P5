@@ -5,5 +5,7 @@
     "terminal.integrated.env.windows": {
         "ROOT": "${workspaceFolder}",
         "PATH": "${workspaceFolder}/commands;${env:Path};",
-    }
+    },
+    "python.pythonPath": ".env\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true,
 }

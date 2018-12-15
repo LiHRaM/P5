@@ -17,4 +17,3 @@ f.write(" ".join([[str(d) for d in c] for c in t_list]))
 f.write("\n")
 f.close()
 print("done")
-

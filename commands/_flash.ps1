@@ -7,7 +7,7 @@ if ($1 -eq $null) {
     echo "Flashing NXT with: $1..."
 }
 if ((& "$env:ROOT/NeXTTool.exe" /COM=usb -getname) -eq "YAYER") {
-    cmd /C "$env:ROOT/NeXTTool.exe /COM=usb -delete=$1"
+    cmd /c "$env:ROOT/NeXTTool.exe /COM=usb -delete=$1"
     cmd /c "$env:ROOT/NeXTTool.exe /COM=usb -download=$1"
     cmd /c "$env:ROOT/NeXTTool.exe /COM=usb -listfiles=$1"
     echo "Flashing complete.";

@@ -1,5 +1,5 @@
 # Target specific macros
-TARGET = SOUND
+TARGET = SND_02
 TARGET_SOURCES = \
 	nxt.c
 TOPPERS_OSEK_OIL_SOURCE = ./nxt.oil
@@ -8,7 +8,7 @@ TOPPERS_OSEK_OIL_SOURCE = ./nxt.oil
 # USER_LIB = FOO
 
 # Custom include paths, space separated
-USER_INC_PATH = ../inc
+USER_INC_PATH = /home/nxt/code/inc/
 
 # Only build programs using the enhanced NXT standard firmware
 BUILD_MODE = RXE_ONLY
