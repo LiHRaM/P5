@@ -35,6 +35,7 @@ TASK(MainTask)
     /* Assertions */
     assert(sizeof(payload) == 256, "buf != 256");
     
+    U32 rename = systick_get_ms();
     /* 16.384 samples in all */
     for(int i = 0; i < 128; i++) {
         for (unsigned char i = 0; i < 128; i++)
@@ -43,13 +44,9 @@ TASK(MainTask)
             systick_wait_ns(18000);
         }
     }
+    rename = systick_get_ms() - rename;
 
     assert(payload[0] != 0, "buf[0] != 0");
-    
-    /* Measure the execution time of transmitting the buffer */
-    U32 rename = systick_get_ms();
-    transmit_buffer(payload);
-    rename = systick_get_ms() - rename;
 
     sanity_check("Task complete...");
 
