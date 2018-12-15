@@ -1,0 +1,25 @@
+Measure the time from start to finish (Here we assume 1001 ms are spent on filling the audio buffer)
+
+#       ms
+01      2463
+02      2421
+03      2436
+04      2449
+05      2459
+06      2403
+07      2385
+08      2424
+09      2410
+10      2400
+11      2437
+12      2417
+13      2404
+14      2547
+15      2472
+16      2450
+17      2399
+18      2410
+19      2461
+20      2394
+
+Avg:    2432.05

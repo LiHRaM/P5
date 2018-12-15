@@ -27,7 +27,7 @@ void fill_buffer(U16 *payload, U16 len) {
 }
 
 /* Send the buffer via Bluetooth */
-void transmit_buffer(U16 *payload) {
+void send_buffer(U16 *payload) {
     U16 sent = 0;
     while(sent < 256) {
         sent += ecrobot_send_bt(payload + (sent / 2), 0, 256 - sent);
