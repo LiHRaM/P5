@@ -28,6 +28,8 @@ void sanity_check(const char *str)
  * len          = 2 bytes
  * i            = 2 bytes
  * 
+ * 8 bytes
+ * 
  * systick_wait_ms  worst case complexity:
  * ecrobot_get_s... worst case complexity:
  * 

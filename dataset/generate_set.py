@@ -5,7 +5,7 @@ from datetime import datetime
 rc = NXTReceiver()
 
 def get_line(data):
-    return str(datetime.now()) + "," + ",".join([str(1023 - unpack_u16(data[i:i+2])) for i in range(0, data.__len__(), 2)]) + "\n"
+    return ",".join([str(unpack_u16(data[i:i+2])) for i in range(0, data.__len__(), 2)]) + "\n"
 
 with open("cries.log", "w") as f:
     while True:
