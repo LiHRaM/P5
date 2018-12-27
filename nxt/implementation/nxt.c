@@ -9,7 +9,8 @@
 #include "ecrobot_interface.h"
 
 #define GATHER_WAIT systick_wait_ms(1);
-#include "shared.h"
+#include "logic.h"
+#include "buffer.h"
 
 /* nxtOSEK hooks */
 void ecrobot_device_initialize()

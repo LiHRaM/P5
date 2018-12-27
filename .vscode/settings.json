@@ -11,6 +11,13 @@
     "files.associations": {
         "*.html": "html",
         "*.oil": "c",
-        "ecrobot_interface.h": "c"
+        "ecrobot_interface.h": "c",
+        "buffer.h": "c",
+        "lcd.h": "c",
+        "logic.h": "c",
+        "motor.h": "c",
+        "assert.h": "c",
+        "logic.h\u0000logic.h": "c",
+        "logic.h\u0000ogic.h": "c"
     },
 }

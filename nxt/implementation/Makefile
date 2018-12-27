@@ -1,12 +1,9 @@
 # Target specific macros
 TARGET = IMPL
 TARGET_SOURCES = \
-	../inc/shared.c \
+	$(wildcard ../common/*.c) \
 	nxt.c
 TOPPERS_OSEK_OIL_SOURCE = ./nxt.oil
-
-# Define custom libraries. Requires USER_INC_PATH.
-# USER_LIB = FOO
 
 # Custom include paths, space separated
 USER_INC_PATH = /home/nxt/code/inc/
