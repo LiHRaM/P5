@@ -8,4 +8,9 @@
     },
     "python.pythonPath": ".env\\Scripts\\python.exe",
     "python.linting.pylintEnabled": true,
+    "files.associations": {
+        "*.html": "html",
+        "*.oil": "c",
+        "ecrobot_interface.h": "c"
+    },
 }
