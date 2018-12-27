@@ -1,6 +1,7 @@
 # Target specific macros
 TARGET = IMPL
 TARGET_SOURCES = \
+	../inc/shared.c \
 	nxt.c
 TOPPERS_OSEK_OIL_SOURCE = ./nxt.oil
 
