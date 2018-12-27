@@ -23,15 +23,7 @@ void sanity_check(const char *str)
 /**
  * fill_buffer
  * 
- * Space complexity:
- * *payload     = 4 bytes
- * len          = 2 bytes
- * i            = 2 bytes
- * 
- * 8 bytes
- * 
- * systick_wait_ms  worst case complexity:
- * ecrobot_get_s... worst case complexity:
+ * Bounded to 16B
  * 
  **/
 void fill_buffer(U16 *payload, U16 len)
@@ -47,7 +39,7 @@ void fill_buffer(U16 *payload, U16 len)
 /**
  * send_buffer
  * 
- * sent = 2 bytes
+ * Bounded to 30B
  */
 void send_buffer(U16 *payload)
 {
@@ -60,9 +52,8 @@ void send_buffer(U16 *payload)
 
 /**
  * set_all_speed
- * speed = 1 byte
  * 
- * ecrobot_set_motor_speed worst case complexity: 
+ * Bounded to 27B 
  **/
 void set_all_speed(S8 speed) {
     ecrobot_set_motor_speed(NXT_PORT_A, speed);
@@ -72,11 +63,8 @@ void set_all_speed(S8 speed) {
 
 /**
  * await_response
- * payload          = 1 byte
- * timer            = 1 byte
  * 
- * ecrobot_read_bt  = 4 bytes
- * 
+ * Bounded to 38B
  **/
 void await_response()
 {

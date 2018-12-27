@@ -28,16 +28,7 @@ void user_1ms_isr_type2(void) {}
 /**
  * MainTask
  * 
- * Space complexity:
- * payload  = 256 bytes
- * i        = 1 byte
- * 
- * Sum = 257 bytes
- * 
- * fill_buffer      worst case complexity:
- * send_buffer      worst case complexity:
- * await_response   worst case complexity:
- * 
+ * Bounded to 295B
  **/
 TASK(MainTask)
 {
